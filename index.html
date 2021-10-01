@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<head>
+    <title>CGPAcalculator</title>
+   
+</head>
+<head>
+<style>
+.center
+{
+	position: absolute;
+	top: 50%;
+	left:50%;
+	transform: translate(-50%,-50%);
+	width:500px;
+	padding:20px 10px 20px 10px;
+	background: white;
+	border-radius:10px;
+	box-shadow: 2px 8px 16px 0px black;
+	
+}
+
+
+</style>
+</head>
+<body style="text-align:center;background-color: aqua;">
+
+ 
+<h1>CGPAcalculator</h1>
+  
+
+<div class="center">
+    <p id="enter">Enter the subject  course credits and grade points of semester: </p>
+ <table  align="center" style="background-color:#9AFEFF" >
+    <thead>
+        <tr>
+            <th>Subjects No:</th>
+            <th>Course credits</th>
+            <th>Grade points</th>
+           
+        </tr>
+        </thead>
+
+        <tbody>
+
+        <tr>
+        <td> subject 1</td>
+        <td><input type="text" id="sub1a" /></td>
+        <td><input type="text" id="sub1b"  /></td>
+        </tr>
+
+
+        <tr>
+            <td> subject 2</td>
+            <td><input type="text" id="sub2a"  /></td>
+            <td><input type="text" id="sub2b" /></td>
+        </tr>
+
+        <tr>
+            <td> subject 3</td>
+            <td><input type="text" id="sub3a" /></td>
+            <td><input type="text" id="sub3b" /></td>
+        </tr>
+
+        <tr>
+            <td> subject 4</td>
+            <td><input type="text" id="sub4a"  /></td>
+            <td><input type="text" id="sub4b"/></td>
+        </tr>
+
+        <tr>
+            <td> subject 5</td>
+            <td><input type="text" id="sub5a"  /></td>
+            <td><input type="text" id="sub5b"  /></td>
+        </tr>
+        <tr>
+            <td> subject 6</td>
+            <td><input type="text" id="sub6a"  /></td>
+            <td><input type="text" id="sub6b" /></td>
+        </tr>
+        
+       
+        </tbody>
+
+</table>
+<p id="gpa"></p>
+<button onclick="myFunction1()">gpa</button>
+<p id="cgpa"></p>
+
+<button onclick="cgpa()">cgpa</button>
+
+</div>
+
+
+
+
+<script>
+
+    var gpasum=0,count=0;
+    
+ 
+
+function myFunction1() {
+    let sum = 0,creditsum=0,gpa;
+for(let i=1;i<=6;i++)
+{
+    let product,credit,grade;
+    let a="sub"+i+"a";
+    let b="sub"+i+"b";
+    credit=document.getElementById(a).value;
+    grade=document.getElementById(b).value;
+    creditsum=creditsum + credit*1;
+    product= credit * grade;
+    sum=sum + product;
+ 
+   
+}
+gpa=sum/creditsum;
+gpasum =gpasum + gpa;
+count=count + 1;
+document.getElementById("gpa").innerHTML = gpa ;
+
+}
+
+
+
+
+function cgpa(){
+    let cgpa1= gpasum/count;
+    document.getElementById("cgpa").innerHTML = cgpa1 ;
+ } 
+</script>
+
+
+
+</body>
